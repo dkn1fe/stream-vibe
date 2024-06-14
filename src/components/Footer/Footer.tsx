@@ -1,10 +1,10 @@
 import { Button } from '@/shared/ui/button'
 import footerList from '@/shared/utils/footerList'
 
-const Footer = () => {
+export const Footer = () => {
 	return (
-		<footer className='bg-[#0F0F0F]'>
-			<div className='container m-auto pt-20 px-4 '>
+		<div className='bg-[#0F0F0F]'>
+			<div className='container pt-20'>
 				<div className='flex flex-wrap justify-between '>
 					{footerList.map(category => (
 						<div key={category.id} className=' mb-10 max-sm:w-1/2'>
@@ -64,7 +64,7 @@ const Footer = () => {
 					</div>
 				</div>
 			</div>
-		</footer>
+		</div>
 	)
 }
 

@@ -1,5 +1,6 @@
 import { Header } from "@/components/Header/Header";
 import { MainInfo } from "@/components/mainBlock/mainInfo";
+import { Footer } from "@/components/Footer/Footer";
 import mainlogo from "@/layouts/mainblock/mainImg.png";
 
 export const HomePage = () => {
@@ -16,6 +17,9 @@ export const HomePage = () => {
       <section className="relative mx-auto z-10">
         <MainInfo />
       </section>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };
