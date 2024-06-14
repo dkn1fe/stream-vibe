@@ -6,7 +6,7 @@ import { BurgerMenu } from "./BurgerMenu";
 export const Header = () => {
   return (
     <div className="container pt-5">
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between text-white items-center">
         <HeaderLogo />
         <NavButton />
         <HeaderSearch />
