@@ -1,3 +1,4 @@
+import { Button } from '@/shared/ui/button'
 import footerList from '@/shared/utils/footerList'
 
 const Footer = () => {
@@ -18,11 +19,16 @@ const Footer = () => {
 											{item.name
 												? item.name
 												: item.image && (
-														<img
-															src={item.image}
-															alt='Social Icons'
-															className='h-8 w-8'
-														/>
+														<Button
+															variant='default'
+															className='bg-[#1A1A1A] '
+														>
+															<img
+																src={item.image}
+																alt='Social Icons'
+																className='h-8 w-8 '
+															/>
+														</Button>
 												  )}
 										</span>
 									</li>
