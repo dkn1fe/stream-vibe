@@ -1,9 +1,9 @@
 import smartphone from "@/layouts/variousDevice/smartphone.png";
-import tablet from "@/layouts/variousDevice/tablet.jpg";
-import tv from "@/layouts/variousDevice/tv.jpg";
-import laptop from "@/layouts/variousDevice/laptop.jpg";
-import game from "@/layouts/variousDevice/game.jpg";
-import vr from "@/layouts/variousDevice/vr.jpg";
+import tablet from "@/layouts/variousDevice/tablet.png";
+import tv from "@/layouts/variousDevice/tv.png";
+import laptop from "@/layouts/variousDevice/laptop.png";
+import game from "@/layouts/variousDevice/game.png";
+import vr from "@/layouts/variousDevice/vr.png";
 
 export const variouseDevicesList = [
   { id: 1, title: "Smartphones", img: smartphone },
