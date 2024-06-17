@@ -18,9 +18,7 @@ export const HomePage = () => {
 			<section className='relative mx-auto z-10'>
 				<MainInfo />
 			</section>
-			<section>
-				<GenreSection />
-			</section>
+
 
 			<footer>
 				<Footer />

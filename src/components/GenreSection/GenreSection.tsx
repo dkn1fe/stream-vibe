@@ -41,7 +41,7 @@ const GenreSection = () => {
 	}, [emblaApi])
 
 	return (
-		<div className='container py-20'>
+		<div className='container  py-10 mt-12 '>
 			<div className='flex justify-between '>
 				<div>
 					<h2 className='text-4xl text-white mb-3'>
