@@ -7,7 +7,7 @@ import CarouselDesktop from './CarouselDesktop'
 import CarouselProgress from './CarouselProgress'
 import CarouselProgressMobile from './CarouselProgressMobile'
 
-const GenreSection = () => {
+export const GenreSection = () => {
 	const [emblaRef, emblaApi] = useEmblaCarousel()
 	const [selectedIndex, setSelectedIndex] = useState(0)
 
