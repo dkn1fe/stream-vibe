@@ -2,7 +2,7 @@ import { Header } from '@/components/Header/Header'
 import { MainInfo } from '@/components/mainBlock/mainInfo'
 import { Footer } from '@/components/Footer/Footer'
 import mainlogo from '@/layouts/mainblock/mainImg.png'
-import GenreSection from '@/components/GenreSection/GenreSection'
+
 
 export const HomePage = () => {
 	return (
