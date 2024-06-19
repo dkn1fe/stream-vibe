@@ -17,7 +17,7 @@ export const QuestionsItem = () => {
               className="border-b border-[#444]"
             >
               <div className="flex items-center justify-start gap-3 pt-8">
-                <div className="p-3 flex justify-center items-center text-white bg-black bg-opacity-80 w-[50px] rounded-lg">
+                <div className="p-3 flex justify-center items-center text-white bg-[#1F1F1F] bg-opacity-80 w-[50px] rounded-lg">
                   0{item.id}
                 </div>
                 <AccordionTrigger className="flex justify-between w-full text-white md:text-[18px]">
@@ -27,7 +27,15 @@ export const QuestionsItem = () => {
               <AccordionContent className="text-[#999999] text-[16px] pt-4 md:p-4">
                 {item.title}
               </AccordionContent>
-              <div className="bg-gradient-to-r max-w-[500px] h-[1px] mt-4" style={{background: 'linear-gradient(to right, #E50000 0%, #E50000 17%, #E50000 100%)'}}/>
+              {item.id <= 6 && (
+                <div
+                  className="h-[1px] mt-4 max-w-[500px]"
+                  style={{
+                    background:
+                      "linear-gradient(to right, #E50000 0%, #E50000 17%, transparent 100%)",
+                  }}
+                />
+              )}
             </AccordionItem>
           </Accordion>
         ))}

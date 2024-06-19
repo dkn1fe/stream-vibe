@@ -4,7 +4,7 @@ import { Play } from "lucide-react";
 export const MainInfo = () => {
   const availWidth = window.screen.availWidth;
   return (
-    <div className="relative bg-[#1F1F1F] text-center mx-auto">
+    <div className="relative text-center mx-auto">
       <h2 className="text-white text-[32px] md:text-6xl  pt-10">
         The Best Streaming Experience
       </h2>

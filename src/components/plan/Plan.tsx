@@ -3,7 +3,7 @@ import { PlanTitle } from "./PlanTitle";
 
 export const Plan = () => {
   return (
-    <div className="container">
+    <div className="container flex-wrap">
         <PlanTitle />
         <div className="py-20">
           <PlanBanner/>

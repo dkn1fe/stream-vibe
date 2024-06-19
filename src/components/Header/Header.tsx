@@ -11,7 +11,7 @@ export const Header = () => {
         <NavButton />
         <HeaderSearch />
         <div className="block md:hidden">
-        <BurgerMenu/>
+          <BurgerMenu />
         </div>
       </div>
     </div>
