@@ -47,7 +47,7 @@ export const GenreSection = () => {
 					<h2 className='text-4xl text-white mb-3'>
 						Explore our wide variety of categories
 					</h2>
-					<p className='text-[#999999] text-sm leading-7'>
+					<p className='text-[#999999] text-sm md:text-lg pt-2 md:leading-7'>
 						Whether you're looking for a comedy to make you laugh, a drama to
 						make you think, or a documentary to learn something new
 					</p>

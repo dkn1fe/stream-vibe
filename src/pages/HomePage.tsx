@@ -21,16 +21,16 @@ export const HomePage = () => {
       <section className="relative mx-auto z-10">
         <MainInfo />
       </section>
-      <section className="py-20 bg-[#1F1F1F]">
+      <section className="py-20">
         <GenreSection />
       </section>
-      <section className="py-20 bg-[#1F1F1F]">
+      <section className="py-20">
         <VariousDevice />
       </section>
-      <section className="py-20 bg-[#1F1F1F]">
+      <section className="py-20">
         <Questions />
       </section>
-      <section className="py-20 bg-[#1F1F1F]">
+      <section className="py-20">
         <Plan />
       </section>
       <footer>
