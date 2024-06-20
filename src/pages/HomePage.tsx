@@ -1,10 +1,10 @@
 import { Header } from "@/components/Header/Header";
-import { MainInfo } from "@/components/mainBlock/mainInfo";
+import { MainInfo } from "@/components/HomePage/mainBlock/mainInfo";
 import { Footer } from "@/components/Footer/Footer";
-import { VariousDevice } from "@/components/variousDevice/VariousDevice";
-import { Questions } from "@/components/questions/Questions";
-import { GenreSection } from "@/components/GenreSection/GenreSection";
-import { Plan } from "@/components/plan/Plan";
+import { VariousDevice } from "@/components/HomePage/variousDevice/VariousDevice";
+import { Questions } from "@/components/HomePage/questions/Questions";
+import { GenreSection } from "@/components/HomePage/GenreSection/GenreSection";
+import { Plan } from "@/components/HomePage/plan/Plan";
 import mainlogo from "@/layouts/mainblock/mainImg.png";
 
 export const HomePage = () => {

@@ -1,5 +1,5 @@
 import GenreCard from './GenreCard'
-import genreList from '../../shared/utils/genreList'
+import genreList from '../../../shared/utils/genreList'
 
 interface CarouselProps {
 	emblaRef: any

@@ -1,4 +1,4 @@
-import PlanBanner from "../PlanBanner/PlanBanner";
+import PlanBanner from "../../PlanBanner/PlanBanner";
 import { PlanTitle } from "./PlanTitle";
 
 export const Plan = () => {
