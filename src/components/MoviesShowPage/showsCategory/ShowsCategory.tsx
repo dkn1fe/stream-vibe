@@ -23,8 +23,6 @@ const ShowsCategory = () => {
 		(state: RootState) => state.moviesSlice
 	)
 
-	console.log(trendingShows)
-
 	useEffect(() => {
 		dispatch(onGetTrendingShows())
 		dispatch(onGetNewReleasesShows())

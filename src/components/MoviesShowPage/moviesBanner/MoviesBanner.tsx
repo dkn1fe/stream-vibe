@@ -16,7 +16,6 @@ export const MoviesBanner = () => {
   const { moviesCarouselList } = useSelector(
     (state: RootState) => state.moviesSlice
   );
-  console.log(moviesCarouselList);
   
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
@@ -50,7 +49,7 @@ export const MoviesBanner = () => {
           ))}
         </div>
       </div>
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center justify-between w-full px-4">
+      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex items-center justify-between w-full px-8">
         <Button onClick={onPrevButtonClick} className="p-2">
           <ChevronLeft size={30} color="white" />
         </Button>
