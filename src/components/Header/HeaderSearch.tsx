@@ -1,10 +1,12 @@
-import { Search, Bell } from "lucide-react";
+import { Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const HeaderSearch = () => {
   return (
     <div className="flex gap-5 items-center">
-      <Search size={20} />
-      <Bell size={20} />
+      <Link to="/search">
+        <Search size={20} />
+      </Link>
     </div>
   );
 };
