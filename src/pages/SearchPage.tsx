@@ -52,7 +52,7 @@ export const SearchPage = () => {
             <PossibleMoviesCard />
           </>
         )}
-        {searchFilms && searchFilms.length !== 0 && (
+        {searchFilms && (searchFilms.length !== 0 && searchText !== '') && (
           <>
             <h2 className="text-white pt-15 text-2xl font-bold">
               По вашему запросу найдено

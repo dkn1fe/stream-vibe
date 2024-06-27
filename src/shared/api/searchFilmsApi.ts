@@ -1,4 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
+import { _mainUrl } from "./api";
 
 export const fetchSearchFilms = createAsyncThunk(
   "searchFilms",
@@ -19,7 +20,7 @@ export const fetchSearchFilms = createAsyncThunk(
 
 export const fetchPossibleFilm = createAsyncThunk("possibleFilms", async () => {
   const data = fetch(
-    `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=ALL&ratingFrom=8&ratingTo=10&yearFrom=1000&yearTo=3000&page=1`,
+    `${_mainUrl}/films?order=RATING&type=ALL&ratingFrom=8&ratingTo=10&yearFrom=1000&yearTo=3000&page=1`,
     {
       method: "GET",
       headers: {
