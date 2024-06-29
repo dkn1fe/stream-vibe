@@ -1,16 +1,14 @@
-import { Link } from "react-router-dom";
-
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/shared/ui/button";
-import { useEffect, useState } from "react";
-import { MoviesShowsCarouselProps } from "../../../shared/types/moviesShowsTypes";
+import { FC, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import MoviesCarouselProgress from "./MoviesCarouselProgress";
+import { MoviesShowsCarouselProps } from "@/shared/types/moviesShowsTypes";
 
-const MoviesCarousel: React.FC<MoviesShowsCarouselProps> = ({
+export const MoviesGenre: FC<MoviesShowsCarouselProps> = ({
   title,
-  movies,
   styles,
+  movies,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -74,35 +72,18 @@ const MoviesCarousel: React.FC<MoviesShowsCarouselProps> = ({
             {Array.isArray(movies) && movies.length > 0 ? (
               movies.map((item, index) => (
                 <div key={index} className={styles.card}>
-                  <Link to={`/movies/${item.filmId as number}`}>
-                    <img
-                      src={item.image || item.posterUrl}
-                      alt={item.title}
-                      className={styles.image}
-                    />
-                    <div className="mt-2">
-                      {title === "New Releases" && (
-                        <div className="bg-[#141414] rounded-lg border border-solid border-[#262626] p-2 text-[#999999] text-center text-xs">
-                          Released in {item.year}
-                        </div>
-                      )}
-                      {title === "Must - Watch Movies" && (
-                        <div className="bg-[#141414] rounded-lg border border-solid border-[#262626] w-1/2 p-2 text-[#999999] text-right">
-                          <span className="mr-2">Rating:</span>
-                          <span className="bg-[#585656] rounded-md p-1">
-                            {item.rating}
-                          </span>
-                        </div>
-                      )}
-                      <div className="flex items-center justify-between text-white">
-                        <h3 className={styles.title}>{item.title}</h3>
-                        {(title === "Our Genres" ||
-                          title === "Popular Top 10 in Genres") && (
-                          <ArrowRight color="white" />
-                        )}
+                  <img
+                    src={item.image || item.posterUrl}
+                    alt={item.title}
+                    className={styles.image}
+                  />
+                  <div className="mt-2">
+                    {title === "Popular Top 10 in Genres" && (
+                      <div className="w-16 bg-[#E50000] rounded-md p-2 text-white text-xs">
+                        Top 10 In
                       </div>
-                    </div>
-                  </Link>
+                    )}
+                  </div>
                 </div>
               ))
             ) : (
@@ -114,5 +95,3 @@ const MoviesCarousel: React.FC<MoviesShowsCarouselProps> = ({
     </div>
   );
 };
-
-export default MoviesCarousel;

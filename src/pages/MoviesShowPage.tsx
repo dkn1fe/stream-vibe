@@ -15,9 +15,9 @@ export const MoviesShowPage = () => {
       <section className="py-[40px]">
         <MoviesCategory />
       </section>
-      <section className="py-[40px]">
+      {/* <section className="py-[40px]">
         <ShowsCategory />
-      </section>
+      </section> */}
     </div>
   );
 };

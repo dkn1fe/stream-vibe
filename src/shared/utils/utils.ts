@@ -6,3 +6,4 @@ export const getRandomNumber = () => {
       const randomNumberArray = [firstId, secondId, thirdId, fourthId];
       return randomNumberArray
 }
+

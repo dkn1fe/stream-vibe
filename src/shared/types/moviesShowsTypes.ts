@@ -1,5 +1,6 @@
 
 export interface Movie {
+	[x: string]: any
 	image?: string
 	posterUrl?: string
 	title: string
@@ -14,7 +15,7 @@ export interface Styles {
 }
 
 export interface MoviesShowsCarouselProps {
-	title: string
+	title: string,
 	movies: Movie[]
 	styles: Styles
 }

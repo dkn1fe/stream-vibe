@@ -4,9 +4,9 @@ import {
 	onGetTrendingMovies,
 	onGetNewReleases,
 	onGetMustWatchMovies,
-	onGetTrendingShows,
-	onGetNewReleasesShows,
-	onGetMustWatchShows,
+	// onGetTrendingShows,
+	// onGetNewReleasesShows,
+	// onGetMustWatchShows,
 } from '@/shared/api/moviesApi'
 
 const initialState: any = {
@@ -40,15 +40,15 @@ export const moviesSlice = createSlice({
 		})
 
 		// Shows
-		builder.addCase(onGetTrendingShows.fulfilled, (state, action) => {
-			state.trendingShows = action.payload
-		})
-		builder.addCase(onGetNewReleasesShows.fulfilled, (state, action) => {
-			state.newReleasesShows = action.payload
-		})
-		builder.addCase(onGetMustWatchShows.fulfilled, (state, action) => {
-			state.mustWatchShows = action.payload
-		})
+		// builder.addCase(onGetTrendingShows.fulfilled, (state, action) => {
+		// 	state.trendingShows = action.payload
+		// })
+		// builder.addCase(onGetNewReleasesShows.fulfilled, (state, action) => {
+		// 	state.newReleasesShows = action.payload
+		// })
+		// builder.addCase(onGetMustWatchShows.fulfilled, (state, action) => {
+		// 	state.mustWatchShows = action.payload
+		// })
 	},
 })
 
