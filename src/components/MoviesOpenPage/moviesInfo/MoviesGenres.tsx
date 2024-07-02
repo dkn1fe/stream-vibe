@@ -1,11 +1,13 @@
 import { LayoutGrid } from "lucide-react";
 import { FC } from "react";
+import { Skeleton } from "@/shared/ui/skeleton";
 
 interface MoviesGenresProps {
   genres: { genre: string }[];
+  status: "loading" | "idle" | "error";
 }
 
-export const MoviesGenres: FC<MoviesGenresProps> = ({ genres }) => {
+export const MoviesGenres: FC<MoviesGenresProps> = ({ genres, status }) => {
   return (
     <>
       <div className="flex gap-2 pt-8 text-[#999999]">
@@ -13,7 +15,13 @@ export const MoviesGenres: FC<MoviesGenresProps> = ({ genres }) => {
         <h3>Genres</h3>
       </div>
       <div className="flex flex-wrap gap-2 pt-4">
-        {genres?.length > 0 ? (
+        {status === "loading" ? (
+          Array.from({ length: 5 }).map((_, index) => (
+            <div key={index} className="flex-shrink-0 pr-5">
+              <Skeleton className="h-[40px] w-[80px] rounded-lg mt-2" />
+            </div>
+          ))
+        ) : genres?.length > 0 ? (
           genres.map((item: { genre: string }, index: number) => (
             <div
               key={index}

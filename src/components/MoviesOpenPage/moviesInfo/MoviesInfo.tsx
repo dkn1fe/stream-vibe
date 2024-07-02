@@ -5,7 +5,7 @@ import { MoviesStaff } from "./MoviesStaff";
 import { MoviesDataInfo } from "./MoviesDataInfo";
 
 export const MoviesInfo = () => {
-  const { moviesInfo, staffMovies } = useSelector(
+  const { moviesInfo, staffMovies,moviesInfoStatus,staffMoviesStatus } = useSelector(
     (state: RootState) => state.moviesPageSlice
   );
 
@@ -13,13 +13,14 @@ export const MoviesInfo = () => {
     <div className="flex flex-col md:flex-row gap-4">
       <div className="flex flex-col gap-4 md:w-2/3">
         <MoviesDescription
+         status = {moviesInfoStatus}
           description={
             moviesInfo.description ||
             moviesInfo.shortDescription ||
             moviesInfo.slogan
           }
         />
-        <MoviesStaff staffMovies={staffMovies as any[]} />
+        <MoviesStaff status = {staffMoviesStatus} staffMovies={staffMovies as any[]} />
       </div>
       <div className="md:w-1/3">
         <MoviesDataInfo />

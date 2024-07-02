@@ -13,9 +13,7 @@ import Footer from "@/components/Footer/Footer";
 export const MoviesOpenPage = () => {
   const { moviesId } = useParams();
   const dispatch = useDispatch<AppDispatch>();
-  const { moviesInfoStatus } = useSelector(
-    (state: RootState) => state.moviesPageSlice
-  );
+
 
   useEffect(() => {
     dispatch(onGetMoviesById(moviesId));
@@ -28,17 +26,12 @@ export const MoviesOpenPage = () => {
         <header>
           <Header />
         </header>
-        {moviesInfoStatus === "loading" && <Spinner />}
-        {moviesInfoStatus === "idle" && (
-          <>
-            <main className="py-20">
-              <MoviesBanner />
-            </main>
-            <section className="pb-10">
-              <MoviesInfo />
-            </section>
-          </>
-        )}
+        <main className="py-20">
+          <MoviesBanner />
+        </main>
+        <section className="pb-10">
+          <MoviesInfo />
+        </section>
         <section className="py-20">
           <PlanBanner />
         </section>

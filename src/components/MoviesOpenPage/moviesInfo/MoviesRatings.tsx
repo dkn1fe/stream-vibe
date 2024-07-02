@@ -1,3 +1,4 @@
+import { Skeleton } from "@/shared/ui/skeleton";
 import { Star } from "lucide-react";
 import { FC } from "react";
 
@@ -27,16 +28,18 @@ const getStarComponents = (rating: number) => {
 };
 
 interface MoviesRatingsProps {
-  streamVibeRating: number | null
+  streamVibeRating: number | null;
   IMDdRating: number | null;
+  status: "loading" | "idle" | "error";
 }
 
 export const MoviesRatings: FC<MoviesRatingsProps> = ({
   streamVibeRating,
   IMDdRating,
+  status,
 }) => {
-  const IMDdRaitingStars = getStarComponents(IMDdRating || 0); 
-  const streamVibeRatingStars = getStarComponents(streamVibeRating || 0); 
+  const IMDdRaitingStars = getStarComponents(IMDdRating || 0);
+  const streamVibeRatingStars = getStarComponents(streamVibeRating || 0);
 
   return (
     <>
@@ -48,27 +51,39 @@ export const MoviesRatings: FC<MoviesRatingsProps> = ({
         <div className="bg-[#141414] w-full md:w-[200px] h-[97px] rounded-[8px] p-[12px] border border-solid border-[#262626]">
           <h3 className="text-white text-lg">IMDb</h3>
           <div className="flex pt-2 items-center">
-            {IMDdRating !== null ? (
-              IMDdRaitingStars
+            {status === "loading" ? (
+              <Skeleton className="w-full h-[24px]" />
             ) : (
-              <Star fill="#999999" color="#999999" />
+              <>
+                {IMDdRating !== null ? (
+                  IMDdRaitingStars
+                ) : (
+                  <Star fill="#999999" color="#999999" />
+                )}
+                <div className="text-white pl-2">
+                  {IMDdRating !== null ? IMDdRating : 0}
+                </div>
+              </>
             )}
-            <div className="text-white pl-2">
-              {IMDdRating !== null ? IMDdRating : 0}
-            </div>
           </div>
         </div>
         <div className="bg-[#141414] w-full md:w-[200px] h-[97px] rounded-[8px] p-[12px] border border-solid border-[#262626]">
           <h3 className="text-white text-lg">StreamVibe</h3>
           <div className="flex pt-2 items-center">
-            {streamVibeRating !== null ? (
-              streamVibeRatingStars
+            {status === "loading" ? (
+              <Skeleton className="w-full h-[24px]" />
             ) : (
-              <Star fill="#999999" color="#999999" />
+              <>
+                {streamVibeRating !== null ? (
+                  streamVibeRatingStars
+                ) : (
+                  <Star fill="#999999" color="#999999" />
+                )}
+                <div className="text-white pl-2">
+                  {streamVibeRating !== null ? streamVibeRating : 0}
+                </div>
+              </>
             )}
-            <div className="text-white pl-2">
-              {streamVibeRating !== null ? streamVibeRating : 0}
-            </div>
           </div>
         </div>
       </div>

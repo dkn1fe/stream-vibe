@@ -1,17 +1,18 @@
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Button } from "@/shared/ui/button";
-import { FC, useCallback} from "react";
+import { FC, useCallback } from "react";
+import { Skeleton } from "@/shared/ui/skeleton";
 import useEmblaCarousel from "embla-carousel-react";
 
 interface MoviesStaffProps {
   staffMovies: { posterUrl: string }[];
+  status: "loading" | "idle" | "error";
 }
 
-export const MoviesStaff: FC<MoviesStaffProps> = ({ staffMovies }) => {
+export const MoviesStaff: FC<MoviesStaffProps> = ({ staffMovies, status }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
   });
-
 
   const scrollBy = 5;
 
@@ -24,7 +25,9 @@ export const MoviesStaff: FC<MoviesStaffProps> = ({ staffMovies }) => {
   const onNextButtonClick = useCallback(() => {
     if (!emblaApi) return;
     const currentIndex = emblaApi.selectedScrollSnap();
-    emblaApi.scrollTo(Math.min(currentIndex + scrollBy, emblaApi.scrollSnapList().length - 1));
+    emblaApi.scrollTo(
+      Math.min(currentIndex + scrollBy, emblaApi.scrollSnapList().length - 1)
+    );
   }, [emblaApi]);
 
   return (
@@ -50,15 +53,21 @@ export const MoviesStaff: FC<MoviesStaffProps> = ({ staffMovies }) => {
       </div>
       <div ref={emblaRef} className="overflow-hidden">
         <div className="flex">
-          {staffMovies && staffMovies.map((item, index) => (
-            <div key={index} className="flex-shrink-0 pr-5">
-              <img
-                src={item.posterUrl}
-                className="h-[120px] cursor-pointer rounded-lg mt-2"
-                alt={`Poster ${index + 1}`}
-              />
-            </div>
-          ))}
+          {status === "loading"
+            ? Array.from({ length: 10 }).map((_, index) => (
+                <div key={index} className="flex-shrink-0 pr-5">
+                  <Skeleton className="h-[120px] w-[80px] rounded-lg mt-2" />
+                </div>
+              ))
+            : staffMovies.map((item, index) => (
+                <div key={index} className="flex-shrink-0 pr-5">
+                  <img
+                    src={item.posterUrl}
+                    className="h-[120px] w-[80px] cursor-pointer rounded-lg mt-2"
+                    alt={`Poster ${index + 1}`}
+                  />
+                </div>
+              ))}
         </div>
       </div>
     </div>
