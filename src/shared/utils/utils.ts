@@ -7,3 +7,6 @@ export const getRandomNumber = () => {
       return randomNumberArray
 }
 
+export const getZero = (num:number) => {
+      return num < 10 ? `0${num}`: num;
+}

@@ -2,12 +2,11 @@ import { Header } from "@/components/Header/Header";
 import { MoviesBanner } from "@/components/MoviesOpenPage/moviesBanner/MoviesBanner";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { onGetMoviesById, onGetStaffById } from "@/shared/api/moviesApiById";
-import { AppDispatch, RootState } from "@/app/store/store";
+import { useDispatch} from "react-redux";
+import { onGetMoviesAndShowById, onGetStaffById } from "@/shared/api/moviesApiById";
+import { AppDispatch } from "@/app/store/store";
 import { MoviesInfo } from "@/components/MoviesOpenPage/moviesInfo/MoviesInfo";
 import PlanBanner from "@/components/PlanBanner/PlanBanner";
-import Spinner from "@/components/spinner/Spinner";
 import Footer from "@/components/Footer/Footer";
 
 export const MoviesOpenPage = () => {
@@ -16,7 +15,7 @@ export const MoviesOpenPage = () => {
 
 
   useEffect(() => {
-    dispatch(onGetMoviesById(moviesId));
+    dispatch(onGetMoviesAndShowById(moviesId));
     dispatch(onGetStaffById(moviesId));
   }, [moviesId]);
 

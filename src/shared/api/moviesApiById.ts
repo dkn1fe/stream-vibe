@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { _mainUrl } from "./api";
 
-export const onGetMoviesById = createAsyncThunk(
+export const onGetMoviesAndShowById = createAsyncThunk(
   "fetch/onGetMoviesById",
   async (id: string | undefined) => {
     const data = fetch(`${_mainUrl}/films/${id}`, {
       method: "GET",
       headers: {
-        "X-API-KEY": "828e27e0-7181-4ca9-a019-cb15dd15d2ca",
+        "X-API-KEY": "709dce91-58d6-4f9c-9a10-60b3da427909",
         "Content-Type": "application/json",
       },
     });
@@ -23,7 +23,7 @@ export const onGetStaffById = createAsyncThunk(
       {
         method: "GET",
         headers: {
-          "X-API-KEY": "828e27e0-7181-4ca9-a019-cb15dd15d2ca",
+          "X-API-KEY": "709dce91-58d6-4f9c-9a10-60b3da427909",
           "Content-Type": "application/json",
         },
       }

@@ -12,12 +12,12 @@ export const MoviesShowPage = () => {
       <main className="py-[40px]">
         <MoviesBanner />
       </main>
-      <section className="py-[40px]">
-        <MoviesCategory />
-      </section>
       {/* <section className="py-[40px]">
-        <ShowsCategory />
+        <MoviesCategory />
       </section> */}
+      <section className="py-[40px]">
+        <ShowsCategory />
+      </section>
     </div>
   );
 };
