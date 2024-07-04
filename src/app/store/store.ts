@@ -2,12 +2,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import moviesSlice  from "./moviesSlice";
 import searchFilmsSlice  from "./searchFilmsSlice";
 import moviesPageSlice from "./moviesPageSlice";
+import showsPageSlice from "./showsPageSlice";
 
 export const store = configureStore({
   reducer: {
     moviesSlice,
     searchFilmsSlice,
-    moviesPageSlice
+    moviesPageSlice,
+    showsPageSlice
   },
 });
 

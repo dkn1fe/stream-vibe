@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { onGetMoviesById, onGetStaffById } from "@/shared/api/moviesApiById";
+import { onGetMoviesAndShowById, onGetStaffById } from "@/shared/api/moviesApiById";
 
 const initialState: any = {
   staffMovies: [],
@@ -13,10 +13,10 @@ export const moviesPageSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(onGetMoviesById.pending, (state) => {
+    builder.addCase(onGetMoviesAndShowById.pending, (state) => {
       state.moviesInfoStatus = "loading"
     }),
-      builder.addCase(onGetMoviesById.fulfilled, (state, action) => {
+      builder.addCase(onGetMoviesAndShowById.fulfilled, (state, action) => {
         state.moviesInfo = action.payload 
         state.moviesInfoStatus = "idle"
       })
