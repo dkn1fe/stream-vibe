@@ -2,7 +2,7 @@ import { HeaderLogo } from "./HeaderLogo";
 import { NavButton } from "./NavButton";
 import { HeaderSearch } from "./HeaderSearch";
 import { BurgerMenu } from "./BurgerMenu";
-import { Bell } from "lucide-react";
+import { Profile } from "./Profile";
 
 export const Header = () => {
   return (
@@ -11,7 +11,9 @@ export const Header = () => {
         <HeaderLogo />
         <NavButton />
         <HeaderSearch />
-        <Bell size = {20}/>
+        <div className="hidden sm:block">
+        <Profile/>
+        </div>
         <div className="block md:hidden">
           <BurgerMenu />
         </div>
