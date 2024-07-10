@@ -15,7 +15,7 @@ export const BurgerMenu = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Button variant="secondary">
+        <Button variant="ghost">
           <Menu size={20} />
         </Button>
       </DropdownMenuTrigger>

@@ -3,13 +3,15 @@ import moviesSlice  from "./moviesSlice";
 import searchFilmsSlice  from "./searchFilmsSlice";
 import moviesPageSlice from "./moviesPageSlice";
 import showsPageSlice from "./showsPageSlice";
+import  authSlice from "./AuthSlice";
 
 export const store = configureStore({
   reducer: {
     moviesSlice,
     searchFilmsSlice,
     moviesPageSlice,
-    showsPageSlice
+    showsPageSlice,
+    authSlice
   },
 });
 
