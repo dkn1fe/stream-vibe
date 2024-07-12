@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { UserDataType, UserDataTypes } from "@/shared/types/userDataTypes";
+import { UserDataType, UserDataTypeSlice } from "@/shared/types/userDataTypes";
 import { AuthService } from "@/service/auth.service";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const initialState: UserDataType = {
-  userData: {} as UserDataType,
+const initialState: UserDataTypeSlice = {
+  userData: {
+    color: null,
+  } as UserDataType,
   token: "" as string,
   notificationAuth: "",
   isAuth: false,
@@ -22,6 +24,12 @@ export const authSlice = createSlice({
       state.isAuth = false;
       state.userData = null;
     },
+    setColor(
+      state: { userData: UserDataType },
+      { payload }: { payload: string }
+    ) {
+      state.userData.color = payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(registration.fulfilled, (state, action) => {
@@ -36,11 +44,11 @@ export const authSlice = createSlice({
       state.userData = action.payload.user;
       state.token = action.payload.token as string;
       state.notificationAuth = "success";
-      state.isAuth = true
+      state.isAuth = true;
     });
     builder.addCase(loginSistem.rejected, (state) => {
       state.notificationAuth = "failed";
-      state.isAuth = false
+      state.isAuth = false;
     });
     builder.addCase(getProfile.fulfilled, (state, action) => {
       state.isAuth = true;
@@ -51,7 +59,7 @@ export const authSlice = createSlice({
 
 export const registration = createAsyncThunk(
   "auth/register",
-  async ({ username, email, password }: UserDataTypes) => {
+  async ({ username, email, password }: UserDataType) => {
     const data = await AuthService.registration({ username, email, password });
     return data;
   }
@@ -59,7 +67,7 @@ export const registration = createAsyncThunk(
 
 export const loginSistem = createAsyncThunk(
   "auth/login",
-  async ({ email, password }: UserDataTypes) => {
+  async ({ email, password }: UserDataType) => {
     const data = await AuthService.login({ email, password });
     return data;
   }
@@ -70,6 +78,6 @@ export const getProfile = createAsyncThunk("auth/getUser", async () => {
   return data;
 });
 
-export const { login, logout } = authSlice.actions;
+export const { login, logout, setColor } = authSlice.actions;
 
 export default authSlice.reducer;
