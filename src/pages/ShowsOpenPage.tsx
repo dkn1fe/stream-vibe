@@ -9,7 +9,6 @@ import {
 } from "@/shared/api/moviesApiById";
 import { onGetShowEpisodeById } from "@/shared/api/showsApiById";
 import { ShowsBanner } from "@/components/ShowsOpenPage/showsBanner/ShowsBanner";
-import { EpisodeInfo } from "@/components/ShowsOpenPage/episodeInfo/EpisodeInfo";
 import { ShowsInfo } from "@/components/ShowsOpenPage/showsInfo/ShowsInfo";
 
 export const ShowsOpenPage = () => {

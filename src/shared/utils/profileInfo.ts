@@ -4,6 +4,4 @@ export const profileInfo = [
     {id:2,title:'Registration',link:'/auth/registry'},
 ]
 
-export const profileAuthInfo = [
-    {id:1,title:'Profile',link:'/profile'},
-]
+export const profileColor:string[] = ['#450A0A','#312E81','#0284C7','#047857','#86198F','#6D28D9']

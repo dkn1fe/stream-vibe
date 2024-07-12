@@ -1,11 +1,13 @@
 
-export interface UserDataTypes{
+export interface UserDataType{
     email:string
-    password:string | number
-    username?:string
+    username:string
+    color?:string | null
+    password?:string | null
+    _id:string
 }
 
-export interface UserDataType{
+export interface UserDataTypeSlice{
     userData:UserDataType | null
     token:string
     notificationAuth:string | null

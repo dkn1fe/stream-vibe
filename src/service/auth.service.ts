@@ -1,9 +1,9 @@
 import { instance } from "@/shared/api/auth/auth";
-import { UserDataTypes } from "@/shared/types/userDataTypes";
+import { UserDataType } from "@/shared/types/userDataTypes";
 
 export const AuthService = {
-  async registration({ username, email, password }: UserDataTypes) {
-    const { data } = await instance.post<UserDataTypes>("register", {
+  async registration({ username, email, password }: UserDataType) {
+    const { data } = await instance.post<UserDataType>("register", {
       username,
       email,
       password,
@@ -11,7 +11,7 @@ export const AuthService = {
     return data;
   },
 
-  async login({ email, password }: UserDataTypes) {
+  async login({ email, password }: UserDataType) {
     const { data } = await instance.post("login", { email, password });
     localStorage.setItem("token", data.token);
     return data;
@@ -19,7 +19,7 @@ export const AuthService = {
 
   async getMe() {
     const token = localStorage.getItem("token");
-    const { data } = await instance.get(`user`, {
+    const { data } = await instance.get<UserDataType>(`user`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
