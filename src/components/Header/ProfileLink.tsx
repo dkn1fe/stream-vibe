@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { profileColor } from "@/shared/utils/profileInfo";
 import { AppDispatch, RootState } from "@/app/store/store";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { setColor, logout } from "@/app/store/AuthSlice";
 import {
@@ -15,7 +15,6 @@ export const ProfileLink = () => {
   const { userData, isAuth } = useSelector(
     (state: RootState) => state.authSlice
   );
-  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch<AppDispatch>();
 

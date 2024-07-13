@@ -8,15 +8,16 @@ import { ShowsOpenPage } from "@/pages/ShowsOpenPage";
 import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { AppDispatch} from "./store/store";
+import { AppDispatch } from "./store/store";
 import { getProfile } from "./store/AuthSlice";
+import { ProfilePage } from "@/pages/ProfilePage";
 
 export default function App() {
   const dispatch = useDispatch<AppDispatch>();
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
-    if(token){
+    if (token) {
       dispatch(getProfile());
     }
   }, []);
@@ -30,6 +31,7 @@ export default function App() {
       <Route path="/shows/:showsId" element={<ShowsOpenPage />} />
       <Route path="/auth/registry" element={<Register />} />
       <Route path="/auth/login" element={<Login />} />
+      <Route path="/profile" element={<ProfilePage />} />
     </Routes>
   );
 }
