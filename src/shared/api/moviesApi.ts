@@ -23,59 +23,59 @@ export const onGetMoviesList = createAsyncThunk(
   }
 );
 
-// export const onGetTrendingMovies = createAsyncThunk(
-//   "movies/onGetTrendingMovies",
-//   async () => {
-//     const response = await fetch(
-//       `${_mainUrl}/films/top?type=TOP_100_POPULAR_FILMS&page=1`,
-//       {
-//         method: "GET",
-//         headers: {
-//           "X-API-KEY": "828e27e0-7181-4ca9-a019-cb15dd15d2ca",
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-//     const data = await response.json();
-//     return data.films;
-//   }
-// );
+export const onGetTrendingMovies = createAsyncThunk(
+  "movies/onGetTrendingMovies",
+  async () => {
+    const response = await fetch(
+      `${_mainUrl}/films/top?type=TOP_100_POPULAR_FILMS&page=1`,
+      {
+        method: "GET",
+        headers: {
+          "X-API-KEY": "828e27e0-7181-4ca9-a019-cb15dd15d2ca",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    return data.films;
+  }
+);
 
-// export const onGetNewReleases = createAsyncThunk(
-//   "movies/onGetNewReleases",
-//   async () => {
-//     const response = await fetch(
-//       `${_mainUrl}/films/top?type=TOP_AWAIT_FILMS&page=1`,
-//       {
-//         method: "GET",
-//         headers: {
-//           "X-API-KEY": "828e27e0-7181-4ca9-a019-cb15dd15d2ca",
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-//     const data = await response.json();
-//     return data.films;
-//   }
-// );
+export const onGetNewReleases = createAsyncThunk(
+  "movies/onGetNewReleases",
+  async () => {
+    const response = await fetch(
+      `${_mainUrl}/films/top?type=TOP_AWAIT_FILMS&page=1`,
+      {
+        method: "GET",
+        headers: {
+          "X-API-KEY": "828e27e0-7181-4ca9-a019-cb15dd15d2ca",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    return data.films;
+  }
+);
 
-// export const onGetMustWatchMovies = createAsyncThunk(
-//   "movies/onGetMustWatchMovies",
-//   async () => {
-//     const response = await fetch(
-//       `${_mainUrl}/films/top?type=TOP_250_BEST_FILMS&page=1`,
-//       {
-//         method: "GET",
-//         headers: {
-//           "X-API-KEY": "709dce91-58d6-4f9c-9a10-60b3da427909",
-//           "Content-Type": "application/json",
-//         },
-//       }
-//     );
-//     const data = await response.json();
-//     return data.films;
-//   }
-// );
+export const onGetMustWatchMovies = createAsyncThunk(
+  "movies/onGetMustWatchMovies",
+  async () => {
+    const response = await fetch(
+      `${_mainUrl}/films/top?type=TOP_250_BEST_FILMS&page=1`,
+      {
+        method: "GET",
+        headers: {
+          "X-API-KEY": "709dce91-58d6-4f9c-9a10-60b3da427909",
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const data = await response.json();
+    return data.films;
+  }
+);
 
 export const onGetTrendingShows = createAsyncThunk(
 	'shows/onGetTrendingShows',
