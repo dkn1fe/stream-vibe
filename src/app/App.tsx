@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { AppDispatch } from "./store/store";
 import { getProfile } from "./store/AuthSlice";
 import { ProfilePage } from "@/pages/ProfilePage";
+import { ProfileSettings } from "@/pages/ProfileSettings";
 
 export default function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -32,6 +33,7 @@ export default function App() {
       <Route path="/auth/registry" element={<Register />} />
       <Route path="/auth/login" element={<Login />} />
       <Route path="/profile" element={<ProfilePage />} />
+      <Route path="/profile/settings" element = {<ProfileSettings/>}/>
     </Routes>
   );
 }

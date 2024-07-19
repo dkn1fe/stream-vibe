@@ -24,7 +24,7 @@ export const AuthHeader = () => {
           <DropdownMenuLabel>Authorization</DropdownMenuLabel>
           <DropdownMenuSeparator />
           {profileInfo.map((item) => (
-            <Link to={item.link}>
+            <Link key = {item.id} to={item.link}>
               <DropdownMenuItem className="flex gap-2" key={item.id}>
                 <div className="flex pl-1 items-center gap-3">
                   <span className="text-[16px]">{item.title}</span>

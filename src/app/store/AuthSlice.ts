@@ -5,7 +5,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState: UserDataTypeSlice = {
   userData: {
-    color: null,
+    color: "#999999",
   } as UserDataType,
   token: "" as string,
   notificationAuth: "",
@@ -54,13 +54,26 @@ export const authSlice = createSlice({
       state.isAuth = true;
       state.userData = action.payload;
     });
+    builder.addCase(onChangeName.fulfilled, (state, action) => {
+      state.userData = action.payload;
+    });
+    builder.addCase(onChangeImage.fulfilled, (state, action) => {
+      state.userData = action.payload;
+    });
+    builder.addCase(onChangeEmail.fulfilled, (state, action) => {
+      state.userData = action.payload;
+    });
   },
 });
 
 export const registration = createAsyncThunk(
   "auth/register",
   async ({ username, email, password }: UserDataType) => {
-    const data = await AuthService.registration({ username, email, password });
+    const data = await AuthService.registration({
+      username,
+      email,
+      password,
+    } as UserDataType);
     return data;
   }
 );
@@ -68,7 +81,7 @@ export const registration = createAsyncThunk(
 export const loginSistem = createAsyncThunk(
   "auth/login",
   async ({ email, password }: UserDataType) => {
-    const data = await AuthService.login({ email, password });
+    const data = await AuthService.login({ email, password } as UserDataType);
     return data;
   }
 );
@@ -78,6 +91,37 @@ export const getProfile = createAsyncThunk("auth/getUser", async () => {
   return data;
 });
 
+export const onChangeName = createAsyncThunk(
+  "settings/name",
+  async (name: string) => {
+    const data = await AuthService.changeName({ name });
+    return data;
+  }
+);
+
+export const onChangeEmail = createAsyncThunk(
+  "settings/email",
+  async (email: string) => {
+    const data = await AuthService.changeEmail({ email });
+    return data;
+  }
+);
+
+export const onChangePhone = createAsyncThunk(
+  "settings/phone",
+  async (phone: string) => {
+    const data = await AuthService.changePhone({ phone });
+    return data;
+  }
+);
+
+export const onChangeImage = createAsyncThunk(
+  "settings/image",
+  async (img: any) => {
+    const data = await AuthService.changeImage(img);
+    return data;
+  }
+);
 export const { login, logout, setColor } = authSlice.actions;
 
 export default authSlice.reducer;
