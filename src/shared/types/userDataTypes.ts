@@ -1,9 +1,10 @@
 
 export interface UserDataType{
-    email:string
-    username:string
+    email:string | null
+    username:string | null
     color?:string | null
     password?:string | null
+    phone?:string | null
     _id:string
 }
 
