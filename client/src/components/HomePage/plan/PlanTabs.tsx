@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Tabs, TabsList, TabsContent, TabsTrigger } from "@radix-ui/react-tabs";
 import { PlanCard } from "./PlanCard";
+import { PlanCardMounthly, PlanCardYearly} from "@/shared/utils/planCardInfo";
 
 export const PlanTabs = () => {
   const [activeTab, setActiveTab] = useState("Monthly");
@@ -32,10 +33,10 @@ export const PlanTabs = () => {
         </TabsList>
       </div>
       <TabsContent value="Monthly">
-        <PlanCard />
+        <PlanCard planCardInfo={PlanCardMounthly} />
       </TabsContent>
       <TabsContent value="Yearly">
-        <PlanCard />
+        <PlanCard planCardInfo={PlanCardYearly}/>
       </TabsContent>
     </Tabs>
   );

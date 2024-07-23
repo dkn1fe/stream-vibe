@@ -1,11 +1,16 @@
+import { PlanCardType } from "@/shared/types/planCardTypes";
 import { Button } from "@/shared/ui/button";
 import { Card, CardContent } from "@/shared/ui/card";
-import { PlanCardInfo } from "@/shared/utils/planCardInfo";
+import { FC } from "react";
 
-export const PlanCard = () => {
+interface PlanCardInfoProps {
+  planCardInfo: PlanCardType[]
+}
+
+export const PlanCard: FC<PlanCardInfoProps> = ({ planCardInfo }) => {
   return (
     <div className="grid lg:grid-cols-3 gap-8">
-      {PlanCardInfo.map((item) => (
+      {planCardInfo.map((item) => (
         <Card className="max-h-[425px] bg-[#1A1A1A] p-6 rounded-lg shadow-lg">
           <CardContent>
             <div className="flex flex-col items-start space-y-4">
