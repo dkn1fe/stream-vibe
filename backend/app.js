@@ -13,7 +13,7 @@ app.use('/auth',authRoutes)
 
 app.use(cors());
 
-mongoose.connect('mongodb://localhost:27017/auth', {
+mongoose.connect('mongodb+srv://dknife:werthvfy@clusterdknife.lqxnutb.mongodb.net/streamvibe?retryWrites=true&w=majority&appName=ClusterDknife', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 }).then(() => {

@@ -7,11 +7,13 @@ const { body, validationResult } = require("express-validator");
 const User = require("../models/user");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const authController = require("../controller/authController");
 
 dotenv.config();
 const jwtSecret = process.env.JWT_SECRET;
 
 router.use(cors());
+
 
 // Register route
 router.post(
@@ -96,7 +98,7 @@ router.post("/login", async (req, res) => {
 
     jwt.sign(payload, jwtSecret, { expiresIn: "24h" }, (err, token) => {
       if (err) console.log(err.message);
-      res.json({ token, user: { id: user._id,username:user.username} });
+      res.json({ token, user: { id: user._id, username: user.username, phone: user.phone } });
     });
   } catch (err) {
     console.error(err.message);
@@ -137,5 +139,52 @@ router.get("/user/:id", authMiddleware, async (req, res) => {
     res.status(500).json({ msg: "Server Error" });
   }
 });
+
+router.patch(
+  "/user/name",
+  [
+    authMiddleware,
+    body("name")
+      .trim()
+      .notEmpty()
+      .withMessage("Name cannot be empty")
+      .isLength({ min: 3 })
+      .withMessage("Name must be at least 3 characters long"),
+  ],
+  authController.updateName
+);
+
+router.patch(
+  "/user/phone",
+  [
+    authMiddleware,
+    body("phone")
+      .trim()
+      .notEmpty()
+      .withMessage("Phone cannot be empty")
+      .isLength({ min: 10, max: 15 })
+      .withMessage("Phone must be between 10 and 15 characters long"),
+  ],
+  authController.updatePhone
+);
+
+// router.patch("/user/img", authMiddleware, authController.updateImage);
+
+router.patch(
+  "/user/email",
+  [
+    authMiddleware,
+    body("email")
+      .isEmail()
+      .withMessage("Email is invalid")
+  ],
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    authController.updateEmail(req, res);
+  }
+);
 
 module.exports = router;
