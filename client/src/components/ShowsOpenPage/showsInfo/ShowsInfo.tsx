@@ -9,7 +9,6 @@ export const ShowsInfo = () => {
   const {staffShows,staffShowsStatus, showsInfoStatus,showsInfo } = useSelector(
     (state: RootState) => state.showsPageSlice
   );
-console.log(showsInfo)
   return (
     <div className="flex flex-col md:flex-row gap-4">
       <div className="flex flex-col gap-4 md:w-2/3">

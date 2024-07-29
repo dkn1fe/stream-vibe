@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Skeleton } from "@/shared/ui/skeleton";
+import { Link } from "react-router-dom";
 
 interface MoviesPeopleProps {
   screenwriter: {
@@ -27,15 +28,18 @@ export const MoviesPeople: FC<MoviesPeopleProps> = ({
   const peopleInfo = [
     {
       title: "Сценарист",
+      staffId:screenwriter?.staffId,
       name: screenwriter?.nameRu || screenwriter?.nameEn,
       img: screenwriter?.posterUrl,
     },
     {
       title: "Продюсер",
+      staffId:producer?.staffId,
       name: producer?.nameRu || producer?.nameEn,
       img: producer?.posterUrl,
     },
   ];
+
 
   return (
     <>
@@ -55,6 +59,7 @@ export const MoviesPeople: FC<MoviesPeopleProps> = ({
         ) : (
           peopleInfo.map((item, index) => (
             <div key={index}>
+              <Link to = {`/staff/${item.staffId}`}>
               <h3 className="text-[#999999] pt-8">{item.title}</h3>
               <div className="bg-[#141414] cursor-pointer max-w-[420px] p-2 marker:border border-solid border-[#262626] rounded-[8px]">
                 <div className="flex items-center gap-2">
@@ -62,6 +67,7 @@ export const MoviesPeople: FC<MoviesPeopleProps> = ({
                   <h3 className="text-white">{item.name}</h3>
                 </div>
               </div>
+              </Link>
             </div>
           ))
         )}

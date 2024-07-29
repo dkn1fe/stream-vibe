@@ -7,7 +7,7 @@ export const onGetMoviesAndShowById = createAsyncThunk(
     const data = fetch(`${_mainUrl}/films/${id}`, {
       method: "GET",
       headers: {
-        "X-API-KEY": "709dce91-58d6-4f9c-9a10-60b3da427909",
+        "X-API-KEY": "a07595fb-3216-4757-8370-6b97eaaf595e",
         "Content-Type": "application/json",
       },
     });
@@ -23,7 +23,7 @@ export const onGetStaffById = createAsyncThunk(
       {
         method: "GET",
         headers: {
-          "X-API-KEY": "709dce91-58d6-4f9c-9a10-60b3da427909",
+          "X-API-KEY": "a07595fb-3216-4757-8370-6b97eaaf595e",
           "Content-Type": "application/json",
         },
       }

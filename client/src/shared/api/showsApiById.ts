@@ -7,7 +7,7 @@ export const onGetShowEpisodeById = createAsyncThunk(
     const response = await fetch(`${_mainUrl}/films/${id}/seasons`, {
       method: "GET",
       headers: {
-        "X-API-KEY": "828e27e0-7181-4ca9-a019-cb15dd15d2ca",
+        "X-API-KEY": "a07595fb-3216-4757-8370-6b97eaaf595e",
         "Content-Type": "application/json",
       },
     });

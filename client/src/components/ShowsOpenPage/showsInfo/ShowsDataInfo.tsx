@@ -17,6 +17,7 @@ export const ShowsDataInfo = () => {
   const producer = staffShows.find(
     (item: {professionText:string}) => item.professionText === "Продюсеры"
   );
+
   return (
     <div className="bg-[#1A1A1A] max-w-[520px] min-h-[947px] md:min-h-[880px]  p-[35px] rounded-[12px] border border-solid border-[#262626]">
       <MoviesYear status={showsInfoStatus} year={showsInfo?.year as number} />

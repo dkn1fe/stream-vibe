@@ -3,9 +3,10 @@ import { Button } from "@/shared/ui/button";
 import { FC, useCallback } from "react";
 import { Skeleton } from "@/shared/ui/skeleton";
 import useEmblaCarousel from "embla-carousel-react";
+import { Link } from "react-router-dom";
 
 interface MoviesStaffProps {
-  staffMovies: { posterUrl: string }[];
+  staffMovies: { posterUrl: string, staffId: number }[];
   status: "loading" | "idle" | "error";
 }
 
@@ -55,19 +56,21 @@ export const MoviesStaff: FC<MoviesStaffProps> = ({ staffMovies, status }) => {
         <div className="flex">
           {status === "loading"
             ? Array.from({ length: 10 }).map((_, index) => (
-                <div key={index} className="flex-shrink-0 pr-5">
-                  <Skeleton className="h-[120px] w-[80px] rounded-lg mt-2" />
-                </div>
-              ))
+              <div key={index} className="flex-shrink-0 pr-5">
+                <Skeleton className="h-[120px] w-[80px] rounded-lg mt-2" />
+              </div>
+            ))
             : staffMovies.map((item, index) => (
-                <div key={index} className="flex-shrink-0 pr-5">
+              <div key={index} className="flex-shrink-0 pr-5" >
+                <Link to={`/staff/${item.staffId}`}>
                   <img
                     src={item.posterUrl}
                     className="h-[120px] w-[80px] cursor-pointer rounded-lg mt-2"
                     alt={`Poster ${index + 1}`}
                   />
-                </div>
-              ))}
+                  </Link>
+              </div>
+            ))}
         </div>
       </div>
     </div>
