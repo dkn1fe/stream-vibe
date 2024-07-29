@@ -12,6 +12,7 @@ import { AppDispatch } from "./store/store";
 import { getProfile } from "./store/AuthSlice";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProfileSettings } from "@/pages/ProfileSettings";
+import { StaffPage } from "@/pages/StaffPage";
 
 export default function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -33,7 +34,8 @@ export default function App() {
       <Route path="/auth/registry" element={<Register />} />
       <Route path="/auth/login" element={<Login />} />
       <Route path="/profile" element={<ProfilePage />} />
-      <Route path="/profile/settings" element = {<ProfileSettings/>}/>
+      <Route path="/profile/settings" element={<ProfileSettings />} />
+      <Route path="/staff/:staffId" element={<StaffPage />} />
     </Routes>
   );
 }
