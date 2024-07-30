@@ -10,7 +10,7 @@ export const StaffImg: FC<StaffImgProps> = ({ img, status }) => {
     return (
         <div className="max-w-[300px]">
             {status === 'loading' && (
-                <Skeleton className="w-[300px] rounded-lg" />
+                <Skeleton className="w-[300px] h-[300px] rounded-lg" />
             )}
             {status === 'idle' && (
                 <img src={img} className="object-cover rounded-lg" />

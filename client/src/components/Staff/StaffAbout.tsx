@@ -16,7 +16,7 @@ export const StaffAbout: FC<StaffAboutProps> = ({ nameRu, nameEn, staffAboutInfo
                     {status === 'loading' ? <Skeleton className="rounded-md w-[200px] h-[40px]" /> : nameRu}
                 </h3>
                 <h4 className="text-[18px] text-[#999999]">
-                    {status === 'loading' ? <Skeleton className="rounded-md w-[150px] h-[18px]" /> : nameEn}
+                    {status === 'loading' ? <Skeleton className="rounded-md mt-2 w-[150px] h-[18px]" /> : nameEn}
                 </h4>
             </div>
             <div className="pt-10">
