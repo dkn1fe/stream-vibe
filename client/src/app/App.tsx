@@ -13,6 +13,7 @@ import { getProfile } from "./store/AuthSlice";
 import { ProfilePage } from "@/pages/ProfilePage";
 import { ProfileSettings } from "@/pages/ProfileSettings";
 import { StaffPage } from "@/pages/StaffPage";
+import { SupportPage } from "@/pages/SupportPage";
 
 export default function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -36,6 +37,7 @@ export default function App() {
       <Route path="/profile" element={<ProfilePage />} />
       <Route path="/profile/settings" element={<ProfileSettings />} />
       <Route path="/staff/:staffId" element={<StaffPage />} />
+      <Route path='/support' element={<SupportPage />} />
     </Routes>
   );
 }

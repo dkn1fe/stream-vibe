@@ -21,6 +21,7 @@ export const MoviesCarousel: FC<MoviesCarouselProps> = ({ films, staffId }) => {
     const { staffMovies, staffMoviesStatus } = useSelector((state: RootState) => state.staffSlice)
     const dispatch = useDispatch<AppDispatch>()
 
+
     useEffect(() => {
         if (staffId && films?.length > 0) {
             const moviesId: number[] = getMoviesName(films)
@@ -53,7 +54,7 @@ export const MoviesCarousel: FC<MoviesCarouselProps> = ({ films, staffId }) => {
                             staffMovies && [...staffMovies as any]
                                 .sort((a, b) => parseFloat(b.ratingImdb) - parseFloat(a.ratingImdb))
                                 .map((movie) => (
-                                    <div className="relative flex-shrink-0 p-2" key={movie.id}>
+                                    <div className="relative flex-shrink-0 p-2" key={movie.kinopoisId}>
                                         <Link to={`/movies/${movie.kinopoiskId}`}>
                                             <div className="relative cursor-pointer p-2">
                                                 <img src={movie.posterUrlPreview} alt={movie.nameOriginal} className="w-[200px] h-[250px] rounded-lg" />
