@@ -21,7 +21,7 @@ export const onGetMoviesStaff = createAsyncThunk(
         const request = moviesIdList.map((item) => fetch(`${_mainUrl}/films/${item}`, {
             method: 'GET',
             headers: {
-                'X-API-KEY': '45bbc453-f198-47ff-a7a7-c3c1bd307027',
+                'X-API-KEY': '709dce91-58d6-4f9c-9a10-60b3da427909',
                 'Content-Type': 'application/json'
             }
         }))

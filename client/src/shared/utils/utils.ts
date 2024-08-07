@@ -28,3 +28,18 @@ export const getMoviesName = (films: Film[]) => {
       films?.map(item => moviesIdList.push(item.filmId))
       return moviesIdList.slice(0,10)
 }
+
+
+export const getRating = (rating:string) => {
+      if (rating === undefined || rating === null) {
+        return '-';
+      }
+      
+      let number = Number(rating);
+    
+      if (!isNaN(number) && number !== 0) {
+        return rating;
+      }
+    
+      return rating + ',0';
+    }
