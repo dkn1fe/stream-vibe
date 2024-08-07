@@ -1,6 +1,6 @@
 import { Film } from "@/shared/types/staffTypes"
 import { FC, useEffect } from "react"
-import { getMoviesName } from "@/shared/utils/utils"
+import { getMoviesName,getRating } from "@/shared/utils/utils"
 import { useDispatch, useSelector } from "react-redux"
 import { onGetMoviesStaff } from "@/shared/api/staffApiById"
 import { AppDispatch, RootState } from "@/app/store/store"
@@ -59,7 +59,7 @@ export const MoviesCarousel: FC<MoviesCarouselProps> = ({ films, staffId }) => {
                                             <div className="relative cursor-pointer p-2">
                                                 <img src={movie.posterUrlPreview} alt={movie.nameOriginal} className="w-[200px] h-[250px] rounded-lg" />
                                                 <p className="absolute top-3 left-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold shadow-lg">
-                                                    {movie.ratingImdb}
+                                                    {getRating(movie.ratingImdb)}
                                                 </p>
                                             </div>
                                         </Link>

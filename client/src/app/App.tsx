@@ -14,6 +14,7 @@ import { ProfilePage } from "@/pages/ProfilePage";
 import { ProfileSettings } from "@/pages/ProfileSettings";
 import { StaffPage } from "@/pages/StaffPage";
 import { SupportPage } from "@/pages/SupportPage";
+import { SubscriptionPage } from "@/pages/SubscripitonPage";
 
 export default function App() {
   const dispatch = useDispatch<AppDispatch>();
@@ -38,6 +39,7 @@ export default function App() {
       <Route path="/profile/settings" element={<ProfileSettings />} />
       <Route path="/staff/:staffId" element={<StaffPage />} />
       <Route path='/support' element={<SupportPage />} />
+      <Route path="/subscriptions" element = {<SubscriptionPage/>}/>
     </Routes>
   );
 }
