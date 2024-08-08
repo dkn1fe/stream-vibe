@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 import {
 	onGetMoviesList,
-	// onGetTrendingMovies,
-	// onGetNewReleases,
-	// onGetMustWatchMovies,
+	onGetTrendingMovies,
+	onGetNewReleases,
+	onGetMustWatchMovies,
 	onGetTrendingShows,
 	onGetNewReleasesShows,
 	onGetMustWatchShows,
@@ -29,15 +29,15 @@ export const moviesSlice = createSlice({
 		})
 
 		// // Movies
-		// builder.addCase(onGetTrendingMovies.fulfilled, (state, action) => {
-		// 	state.trendingMovies = action.payload
-		// })
-		// builder.addCase(onGetNewReleases.fulfilled, (state, action) => {
-		// 	state.newReleases = action.payload
-		// })
-		// builder.addCase(onGetMustWatchMovies.fulfilled, (state, action) => {
-		// 	state.mustWatchMovies = action.payload
-		// })
+		builder.addCase(onGetTrendingMovies.fulfilled, (state, action) => {
+			state.trendingMovies = action.payload
+		})
+		builder.addCase(onGetNewReleases.fulfilled, (state, action) => {
+			state.newReleases = action.payload
+		})
+		builder.addCase(onGetMustWatchMovies.fulfilled, (state, action) => {
+			state.mustWatchMovies = action.payload
+		})
 
 //      Shows
 		builder.addCase(onGetTrendingShows.fulfilled, (state, action) => {
