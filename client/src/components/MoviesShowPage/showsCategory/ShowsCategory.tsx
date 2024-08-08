@@ -10,6 +10,7 @@ import {
 	onGetMustWatchShows,
 } from '@/shared/api/moviesApi'
 import ShowsCarousel from './ShowsCarousel'
+import { ShowsGenreCarousel } from './ShowsGenreCarousel'
 
 const ShowsCategory = () => {
 	const dispatch = useDispatch<AppDispatch>()
@@ -36,27 +37,7 @@ const ShowsCategory = () => {
 					<div className='text-white px-6 py-3 bg-[#E50000] absolute -top-5 left-10 rounded-lg'>
 						Shows
 					</div>
-
-					<ShowsCarousel
-						title='Our Genres'
-						movies={genreList}
-						styles={{
-							card: 'bg-[#1A1A1A] p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 my-4 border-solid border-2 border-[#262626] flex-shrink-0 w-[19%] mx-2 mb-4 max-lg:w-1/3 max-sm:w-1/2 max-xl:w-1/4',
-							image: 'rounded w-full',
-							title: 'flex items-center justify-between  text-white',
-						}}
-					/>
-
-					<ShowsCarousel
-						title='Popular Top 10 in Genres'
-						movies={genreListSecond}
-						styles={{
-							card: 'bg-[#1A1A1A] p-6 rounded-lg transform transition-transform duration-300 hover:scale-105 my-4 border-solid border-2 border-[#262626] flex-shrink-0 w-[19%] mx-2 mb-4 max-lg:w-1/3 max-sm:w-1/2 max-xl:w-1/4',
-							image: 'rounded w-full',
-							title: 'flex items-center justify-between mt-2 text-white',
-						}}
-					/>
-
+					<ShowsGenreCarousel />
 					<ShowsCarousel
 						title='Trending Now'
 						movies={trendingShows}

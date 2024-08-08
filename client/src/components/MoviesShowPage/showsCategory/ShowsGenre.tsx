@@ -1,15 +1,14 @@
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/shared/ui/button";
-import { useEffect, useState } from "react";
-import { MoviesShowsCarouselProps } from "../../../shared/types/moviesShowsTypes";
+import { FC, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import { MoviesShowsCarouselProps } from "@/shared/types/moviesShowsTypes";
 import ShowsCarouselProgress from "./ShowsCarouselProgress";
-import { Link } from "react-router-dom";
 
-const ShowsCarousel: React.FC<MoviesShowsCarouselProps> = ({
+export const ShowGenre: FC<MoviesShowsCarouselProps> = ({
   title,
-  movies,
   styles,
+  movies,
 }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -23,6 +22,11 @@ const ShowsCarousel: React.FC<MoviesShowsCarouselProps> = ({
   const onNextButtonClick = () => {
     if (!emblaApi) return;
     emblaApi.scrollTo(selectedIndex + 5);
+  };
+
+  const onDotButtonClick = (index: number) => {
+    if (!emblaApi) return;
+    emblaApi.scrollTo(index * 5);
   };
 
   const onSelect = () => {
@@ -42,16 +46,11 @@ const ShowsCarousel: React.FC<MoviesShowsCarouselProps> = ({
 
   const totalIndicators = Math.ceil(scrollSnaps.length / 5);
 
-  const onDotButtonClick = (index: number) => {
-    if (!emblaApi) return;
-    emblaApi.scrollTo(index * 5);
-  };
-
   return (
     <div className="container py-10 mt-12">
       <div className="flex items-center justify-between mb-3">
         <h2 className="text-4xl text-white">{title}</h2>
-        <div className="flex items-center bg-[#0F0F0F] p-4 rounded-lg max-xl:hidden">
+        <div className="flex items-center bg-[#0F0F0F] px-4 py-4 rounded-lg max-xl:hidden">
           <Button className="p-2" onClick={onPrevButtonClick}>
             <ChevronLeft size={30} color="white" />
           </Button>
@@ -73,35 +72,18 @@ const ShowsCarousel: React.FC<MoviesShowsCarouselProps> = ({
             {Array.isArray(movies) && movies.length > 0 ? (
               movies.map((item, index) => (
                 <div key={index} className={styles.card}>
-                  <Link to={`/shows/${item.kinopoiskId || item.filmId}`}>
                   <img
                     src={item.image || item.posterUrl}
                     alt={item.title}
                     className={styles.image}
                   />
-                    <div className="mt-2">
-                      {title === "New Releases" && (
-                        <div className=" bg-[#141414] rounded-lg border border-solid border-[#262626]  p-2 text-[#999999] text-center text-xs">
-                          Released in {item.year}
-                        </div>
-                      )}
-                      {title === "Must - Watch Movies" && (
-                        <div className="bg-[#141414] rounded-lg border border-solid border-[#262626] w-1/2 p-2 text-[#999999] text-right">
-                          <span className="mr-2">Rating:</span>
-                          <span className=" bg-[#585656] rounded-md p-1">
-                            {item.rating}
-                          </span>
-                        </div>
-                      )}
-                      <div className="flex items-center justify-between  text-white">
-                        <h3 className={styles.title}>{item.title}</h3>
-                        {(title === "Our Genres" ||
-                          title === "Popular Top 10 in Genres") && (
-                          <ArrowRight color="white" />
-                        )}
+                  <div className="mt-2">
+                    {title === "Popular Top 10 in Genres" && (
+                      <div className="w-16 bg-[#E50000] rounded-md p-2 text-white text-xs">
+                        Top 10 In
                       </div>
-                    </div>
-                  </Link>
+                    )}
+                  </div>
                 </div>
               ))
             ) : (
@@ -113,5 +95,3 @@ const ShowsCarousel: React.FC<MoviesShowsCarouselProps> = ({
     </div>
   );
 };
-
-export default ShowsCarousel;
