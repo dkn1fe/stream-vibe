@@ -1,11 +1,11 @@
 import GenreCard from './GenreCard'
-import genreList from '../../../shared/utils/genreList'
+import {genreList} from '../../../shared/utils/genreList'
 
 interface CarouselProps {
 	emblaRef: any
 }
 
-const CarouselDesktop: React.FC<CarouselProps> = ({ emblaRef }) => {
+export const CarouselDesktop: React.FC<CarouselProps> = ({ emblaRef }) => {
 	return (
 		<div className='overflow-hidden w-full' ref={emblaRef}>
 			<div className='flex pt-10'>
@@ -22,4 +22,4 @@ const CarouselDesktop: React.FC<CarouselProps> = ({ emblaRef }) => {
 	)
 }
 
-export default CarouselDesktop
+

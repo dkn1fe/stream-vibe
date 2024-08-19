@@ -1,5 +1,5 @@
 import { MoviesGenre } from "./MoviesGenre";
-import genreList from "@/shared/utils/genreList";
+import {genreList} from "@/shared/utils/genreList";
 import genreListSecond from "@/shared/utils/genreListSecond";
 
 export const MoviesGenreCarousel = () => {

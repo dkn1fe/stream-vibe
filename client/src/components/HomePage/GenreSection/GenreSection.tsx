@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/shared/ui/button'
 import useEmblaCarousel from 'embla-carousel-react'
 
-import CarouselDesktop from './CarouselDesktop'
+import {CarouselDesktop} from './CarouselDesktop'
 import CarouselProgress from './CarouselProgress'
 import CarouselProgressMobile from './CarouselProgressMobile'
 
