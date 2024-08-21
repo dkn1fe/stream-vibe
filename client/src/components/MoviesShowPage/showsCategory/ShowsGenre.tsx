@@ -4,6 +4,10 @@ import { FC, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import { MoviesShowsCarouselProps } from "@/shared/types/moviesShowsTypes";
 import ShowsCarouselProgress from "./ShowsCarouselProgress";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/app/store/store";
+import { chooseGenresFilm } from "@/app/store/genresSlice";
 
 export const ShowGenre: FC<MoviesShowsCarouselProps> = ({
   title,
@@ -13,6 +17,7 @@ export const ShowGenre: FC<MoviesShowsCarouselProps> = ({
   const [emblaRef, emblaApi] = useEmblaCarousel();
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const dispatch = useDispatch<AppDispatch>()
 
   const onPrevButtonClick = () => {
     if (!emblaApi) return;
@@ -72,6 +77,7 @@ export const ShowGenre: FC<MoviesShowsCarouselProps> = ({
             {Array.isArray(movies) && movies.length > 0 ? (
               movies.map((item, index) => (
                 <div key={index} className={styles.card}>
+                <Link onClick={() => dispatch(chooseGenresFilm(item.label))} to = {`/genres/${item.title}`}>
                   <img
                     src={item.image || item.posterUrl}
                     alt={item.title}
@@ -84,6 +90,7 @@ export const ShowGenre: FC<MoviesShowsCarouselProps> = ({
                       </div>
                     )}
                   </div>
+                  </Link>
                 </div>
               ))
             ) : (

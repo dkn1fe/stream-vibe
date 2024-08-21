@@ -1,6 +1,3 @@
-import genreList from '../../../shared/utils/genreList'
-import genreListSecond from '@/shared/utils/genreListSecond'
-
 import { useEffect } from 'react'
 import { AppDispatch, RootState } from '@/app/store/store'
 import { useDispatch, useSelector } from 'react-redux'

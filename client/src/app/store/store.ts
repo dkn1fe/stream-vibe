@@ -5,6 +5,7 @@ import moviesPageSlice from "./moviesPageSlice";
 import showsPageSlice from "./showsPageSlice";
 import authSlice from "./AuthSlice";
 import staffSlice  from "./staffSlice";
+import genresSlice from "./genresSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,7 +14,8 @@ export const store = configureStore({
     moviesPageSlice,
     showsPageSlice,
     authSlice,
-    staffSlice
+    staffSlice,
+    genresSlice
   },
 });
 
